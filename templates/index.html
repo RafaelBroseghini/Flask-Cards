@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Flask Cards</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/main.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.2/semantic.min.css" />
+</head>
+<body>
+    <div class="ui container">
+        <div class="ui grid">
+            <div class="row">
+                <div class="sixteen wide column">
+                    <div class="ui segment center aligned">
+                        <h1 class="header">Software Engineering here I come!</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="four wide column">
+                    <div class="ui stacked segment">
+                        {% if card %}
+                        <h1 class="ui header">{{ card.topic }}</h1>
+                        {% else %}
+                        <h1 class="ui header">Topic:</h1>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="twelve wide column">
+                    <div class="ui stacked segment">
+                        {% if card%}
+                        <h1 class="ui header">{{ card.question }}</h1>
+                        {% else %}
+                        <h1 class="ui header">Question goes here!</h1>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="ten wide column">
+                    <a class="ui  circular teal button" href="/new">Add new!</a>
+                </div>
+            </div>
+        </div>
+    </div> 
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.2/semantic.min.js"></script>
+    <script src="/static/js/main.js"></script>
+</body>
+</html>

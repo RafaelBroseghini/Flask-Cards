@@ -8,10 +8,10 @@ def index():
     try:
         record = random.choice(Card.query.all())
     except:
-        record=None
+        record = None
     return render_template("index.html", card=record)
 
-@app.route("/new", methods=["GET", "POST"])
+@app.route("/cards/new", methods=["GET", "POST"])
 def new_card():
     if request.method == "GET":
         return render_template("new.html")

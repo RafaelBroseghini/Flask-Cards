@@ -1,17 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="../static/css/main.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.2/semantic.min.css" />
-    <script src="main.js"></script>
-</head>
-<body>
-    <div class="ui container">
-        <form action="/new" method="POST" class="ui form">
+{% extends "base.html" %}
+    {% block content %}
+    <div class="ui main container">
+        <form action="/cards/new" method="POST" class="ui form">
             <div class="field">
                 <label for="question">Question</label>
                 <input type="text" name="question">
@@ -23,5 +13,4 @@
             <button type="submit" class="ui circular teal button">Submit!</button>
         </form>
     </div>
-</body>
-</html>
+    {% endblock %}

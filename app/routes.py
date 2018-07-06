@@ -1,5 +1,8 @@
 from flask import render_template, request, redirect
-from app import app
+from app.models import Card
+from app import app, db
+import random
+
 @app.route("/")
 def index():
     try:
@@ -21,3 +24,28 @@ def new_card():
         db.session.commit()
 
         return redirect("/")
+
+@app.route("/cards")
+def show_cards():
+    return render_template("cards.html")
+
+@app.route("/cards/<int:card_id>")
+def get_card(card_id):
+    card = Card.query.get(card_id)
+    return render_template("show.html", card=card)
+
+@app.route("/cards/<int:card_id>", methods=["POST"])
+def edit(card_id):
+    print("here!!")
+    card = Card.query.get(card_id)
+    card.question = request.form["question"]
+    card.topic = request.form["topic"]
+    
+    db.session.commit()
+    return redirect("/")
+
+@app.route("/cards/<int:card_id>/delete", methods=["POST"])
+def delete_card(card_id):
+    Card.query.filter_by(id=card_id).delete()
+    db.session.commit()
+    return redirect("/")

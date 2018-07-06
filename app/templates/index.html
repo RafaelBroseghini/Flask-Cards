@@ -29,18 +29,28 @@
                     </div>
                 </div>
                 <div class="twelve wide column">
-                    <div class="ui stacked segment">
-                        {% if card%}
-                        <h1 class="ui header">{{ card.question }}</h1>
-                        {% else %}
-                        <h1 class="ui header">Question goes here!</h1>
-                        {% endif %}
+                    <a href="/cards/{{ card.id }}">
+                        <div class="ui stacked segment">
+                            {% if card%}
+                            <h1 class="ui header">{{ card.question }}</h1>
+                            {% else %}
+                            <h1 class="ui header">Question goes here!</h1>
+                            {% endif %}
+                        </div>
+                    </a>
                     </div>
-                </div>
             </div>
             <div class="row">
                 <div class="ten wide column">
                     <a class="ui  circular teal button" href="/new">Add new!</a>
+                </div>
+                <div class="six wide column">
+                    <a class="ui right floated circular blue button" href="/cards">View all!</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="six wide column">
+                    <a class="ui right floated circular blue button" href="/cards/{{ card.id }}">Edit!</a>
                 </div>
             </div>
         </div>

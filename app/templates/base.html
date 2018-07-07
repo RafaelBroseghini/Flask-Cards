@@ -9,6 +9,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.2/semantic.min.css" />
 </head>
 <body>
+    <div class="ui huge secondary pointing menu">
+        <div class="ui massive container">
+            <a class="active item" href="/">
+                Flas(k) Cards
+            </a>
+            <a href="/cards/new" class="right item" title="Add new flas(k) card"><i class="plus icon"></i></a>
+        </div>
+    </div>
     {% block content%}
     <h1>Welcome to Flask Cards!</h1>
     {% endblock %}

@@ -1,13 +1,5 @@
 {% extends "base.html" %}
-    {% block content %}
-    <div class="ui huge secondary pointing menu">
-        <div class="ui massive container">
-            <a class="active item" href="#">
-                Flas(k) Cards
-            </a>
-        </div>
-    </div>
-    
+    {% block content %}    
     <div class="ui main container">
         <div class="ui grid">
             <div class="row">
@@ -26,7 +18,7 @@
                                 {{ all_topics }}
                             </div>
                             <div class="label">
-                            Topics
+                            Different Topic(s)
                             </div>
                         </div>
                         <!-- <div class="statistic">
@@ -49,33 +41,33 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <!-- <div class="row">
                 <div class="sixteen wide column">
                     <div class="ui segment center aligned">
                         <h1 class="header">Software Engineering here I come!</h1>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <div class="row">
                 <div class="eight wide column">
                     <div class="ui stacked segment">
+                        <a class="ui black ribbon label">Topic</a>
                         {% if card %}
                         <h1 class="ui header">{{ card.topic }}</h1>
                         {% else %}
-                        <h1 class="ui header">Topic:</h1>
+                        <h1 class="ui header">Topic will go here:</h1>
                         {% endif %}
                     </div>
                 </div>
                 <div class="eight wide column">
-                    <a href="/cards/{{ card.id }}">
-                        <div class="ui stacked segment">
-                            {% if card%}
-                            <h1 class="ui header">{{ card.question }}</h1>
-                            {% else %}
-                            <h1 class="ui header">Question goes here!</h1>
-                            {% endif %}
-                        </div>
-                    </a>
+                    <div class="ui stacked segment">
+                        <a class="ui green ribbon label">Question</a>
+                        {% if card%}
+                        <h1 class="ui header">{{ card.question }}</h1>
+                        {% else %}
+                        <h1 class="ui header">Question will go here:</h1>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
             <div class="row">

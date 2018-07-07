@@ -7,9 +7,48 @@
             </a>
         </div>
     </div>
-
+    
     <div class="ui main container">
         <div class="ui grid">
+            <div class="row">
+                <div class="sixteen column wide center aligned">
+                    <div class="ui two statistics">
+                        <div class="statistic">
+                            <div class="value">
+                            {{ total_cards }}
+                            </div>
+                            <div class="label">
+                                Card(s)
+                            </div>
+                        </div>  
+                        <div class="statistic">
+                            <div class="value">
+                                {{ all_topics }}
+                            </div>
+                            <div class="label">
+                            Topics
+                            </div>
+                        </div>
+                        <!-- <div class="statistic">
+                            <div class="value">
+                            <i class="plane icon"></i> 5
+                            </div>
+                            <div class="label">
+                            Flights
+                            </div>
+                        </div>
+                        <div class="statistic">
+                            <div class="value">
+                            <img src="/images/avatar/small/joe.jpg" class="ui circular inline image">
+                            42
+                            </div>
+                            <div class="label">
+                            Team Members
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
             <div class="row">
                 <div class="sixteen wide column">
                     <div class="ui segment center aligned">
@@ -41,10 +80,7 @@
             </div>
             <div class="row">
                 {% if card%}
-                <div class="eight wide column">
-                    <a class="ui massive teal button" href="/cards/new">Add new!</a>
-                </div>
-                <div class="eight wide column">
+                <div class="sixteen wide column">
                     <a class="ui right floated massive green button" href="/cards/{{ card.id }}">Edit!</a>
                 </div>
                 {% else %}

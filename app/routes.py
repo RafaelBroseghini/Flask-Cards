@@ -6,10 +6,17 @@ import random
 @app.route("/")
 def index():
     try:
+        # print(func)
         record = random.choice(Card.query.all())
+        total_cards  = len(Card.query.all())
+        all_topics = len(db.session.query(Card.topic.distinct()).all())
+        print(all_topics)
     except:
         record = None
-    return render_template("index.html", card=record)
+        total_cards  = 0
+        all_topics = 0
+    
+    return render_template("index.html", card=record, total_cards=total_cards, all_topics = all_topics)
 
 @app.route("/cards/new", methods=["GET", "POST"])
 def new_card():

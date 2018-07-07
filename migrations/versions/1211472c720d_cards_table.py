@@ -1,8 +1,8 @@
 """cards table
 
-Revision ID: a43ebda925ec
+Revision ID: 1211472c720d
 Revises: 
-Create Date: 2018-07-05 23:44:24.563763
+Create Date: 2018-07-06 21:52:44.815662
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'a43ebda925ec'
+revision = '1211472c720d'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -22,9 +22,7 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('question', sa.String(length=100), nullable=True),
     sa.Column('topic', sa.String(length=100), nullable=True),
-    sa.PrimaryKeyConstraint('id'),
-    sa.UniqueConstraint('question'),
-    sa.UniqueConstraint('topic')
+    sa.PrimaryKeyConstraint('id')
     )
     # ### end Alembic commands ###
 

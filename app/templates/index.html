@@ -21,33 +21,9 @@
                             Different Topic(s)
                             </div>
                         </div>
-                        <!-- <div class="statistic">
-                            <div class="value">
-                            <i class="plane icon"></i> 5
-                            </div>
-                            <div class="label">
-                            Flights
-                            </div>
-                        </div>
-                        <div class="statistic">
-                            <div class="value">
-                            <img src="/images/avatar/small/joe.jpg" class="ui circular inline image">
-                            42
-                            </div>
-                            <div class="label">
-                            Team Members
-                            </div>
-                        </div> -->
                     </div>
                 </div>
             </div>
-            <!-- <div class="row">
-                <div class="sixteen wide column">
-                    <div class="ui segment center aligned">
-                        <h1 class="header">Software Engineering here I come!</h1>
-                    </div>
-                </div>
-            </div> -->
             <div class="row">
                 <div class="eight wide column">
                     <div class="ui stacked segment">
@@ -62,6 +38,9 @@
                 <div class="eight wide column">
                     <div class="ui stacked segment">
                         <a class="ui green ribbon label">Question</a>
+                        <a class="ui green right corner label" href="/cards/new">
+                            <i class="plus icon" style="cursor: pointer;"></i>
+                        </a>
                         {% if card%}
                         <h1 class="ui header">{{ card.question }}</h1>
                         {% else %}
@@ -74,10 +53,6 @@
                 {% if card%}
                 <div class="sixteen wide column">
                     <a class="ui right floated massive green button" href="/cards/{{ card.id }}">Edit!</a>
-                </div>
-                {% else %}
-                <div class="sixteen wide column center aligned">
-                    <a class="ui massive teal button" href="/cards/new">Add new!</a>
                 </div>
                 {% endif %}
             </div>

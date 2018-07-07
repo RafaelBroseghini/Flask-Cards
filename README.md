@@ -7,6 +7,7 @@ online flash cards for studying.
 * `git clone https://github.com/RafaelBroseghini/Flask-Cards.git`
 * `cd Flask-Cards`
 * `pip install -r requirements.txt`
+* `flask db init`
 * `flask db migrate -m "cards table"`
 * `flask db upgrade`
 * `flask run`

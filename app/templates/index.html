@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="sixteen column wide center aligned">
                     <div class="ui two statistics">
-                        <div class="statistic">
+                        <div class="statistic animated zoomIn">
                             <div class="value">
                             {{ total_cards }}
                             </div>
@@ -13,7 +13,7 @@
                                 Card(s)
                             </div>
                         </div>  
-                        <div class="statistic">
+                        <div class="statistic animated zoomIn">
                             <div class="value">
                                 {{ all_topics }}
                             </div>
@@ -38,9 +38,11 @@
                 <div class="eight wide column">
                     <div class="ui stacked segment">
                         <a class="ui green ribbon label">Question</a>
-                        <a class="ui green right corner label" href="/cards/new">
-                            <i class="plus icon" style="cursor: pointer;"></i>
-                        </a>
+                        <div class="ui green right corner label"
+                        data-content="Add a new Flas(k) Card."
+                        data-position="right center">
+                            <a href="/cards/new"><i class="add icon" style="cursor: pointer;"></i></a> 
+                        </div>
                         {% if card%}
                         <h1 class="ui header">{{ card.question }}</h1>
                         {% else %}
@@ -58,4 +60,8 @@
             </div>
         </div>
     </div> 
+    {% endblock %}
+    {% block scripts %}
+        {{ super() }}
+    <script src="../static/js/main.js"></script>
     {% endblock %}

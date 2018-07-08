@@ -6,6 +6,7 @@
     <title>Flask Cards</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="/static/css/main.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.2/semantic.min.css" />
 </head>
 <body>
@@ -14,12 +15,15 @@
             <a class="active item" href="/">
                 Flas(k) Cards
             </a>
-            <a href="/cards/new" class="right item" title="Add new flas(k) card"><i class="plus icon"></i></a>
         </div>
     </div>
     {% block content%}
     <h1>Welcome to Flask Cards!</h1>
     {% endblock %}
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.2/semantic.min.js"></script>
     <script src="/static/js/main.js"></script>
 </body>

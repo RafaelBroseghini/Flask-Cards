@@ -1,5 +1,5 @@
 # Flas(k) Cards - Web application! :books:
-* This is a web application for keeping storing a collection of
+* This is a web application for storing a collection of
 online flash cards for studying.
 * Use as you wish! You're the hacker :thumbsup:
 
@@ -13,6 +13,7 @@ online flash cards for studying.
 * `flask run`
 
 ## Future Add-ons
+* Ability to divide into multiple study sessions.
 * Ajax calls.
 * AuthO
 

@@ -6,10 +6,9 @@ import random
 @app.route("/")
 def index():
     try:
-        # print(func)
-        record = random.choice(Card.query.all())
+        record       = random.choice(Card.query.all())
         total_cards  = len(Card.query.all())
-        all_topics = len(db.session.query(Card.topic.distinct()).all())
+        all_topics   = len(db.session.query(Card.topic.distinct()).all())
         print(all_topics)
     except:
         record = None
@@ -43,7 +42,6 @@ def get_card(card_id):
 
 @app.route("/cards/<int:card_id>", methods=["POST"])
 def edit(card_id):
-    print("here!!")
     card = Card.query.get(card_id)
     card.question = request.form["question"]
     card.topic = request.form["topic"]

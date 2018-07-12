@@ -2,7 +2,14 @@ $('.corner')
   .popup()
 ;
 
-$('#toggler').click(function(){
-  $(this).sidebar('toggle')
-})
+$('.ui.search')
+  .search({
+    apiSettings: {
+      url: '/cards'
+    },
+    fields: {
+      results: 'items',
+      title: 'topic'
+    }
+  })
 ;

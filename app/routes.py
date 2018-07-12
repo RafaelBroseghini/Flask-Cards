@@ -1,7 +1,8 @@
-from flask import render_template, request, redirect
+from flask import render_template, request, redirect, jsonify
 from app.models import Card
 from app import app, db
 import random
+import json
 
 @app.route("/")
 def index():
@@ -33,7 +34,12 @@ def new_card():
 
 @app.route("/cards")
 def show_cards():
-    return render_template("cards.html")
+    cards = Card.query.all()
+    content = {"items":[]}
+    for c in cards:
+        content["items"].append({"topic": c.topic, "question":c.question})
+    print(content)
+    return jsonify(content)
 
 @app.route("/cards/<int:card_id>")
 def get_card(card_id):

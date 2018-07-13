@@ -15,6 +15,11 @@
             <a class="active item" href="/">
                 Flas(k) Cards
             </a>
+            {% if current_user.is_anonymous %}
+            <a class="right item" href="/login">Login</a>
+            {% else %}
+            <a class="right item" href="/logout">Logout</a>
+            {% endif %}
         </div>
     </div>
     <div class="ui search">

@@ -15,7 +15,16 @@
             <a class="active item" href="/">
                 Flas(k) Cards
             </a>
+            {% if current_user.is_anonymous %}
+            <a class="right item" href="/login">Login</a>
+            {% else %}
+            <a class="right item" href="/logout">Logout</a>
+            {% endif %}
         </div>
+    </div>
+    <div class="ui search">
+        <input class="prompt" type="text" placeholder="Search for cards">
+        <div class="results"></div>
     </div>
     {% block content%}
     <h1>Welcome to Flask Cards!</h1>
@@ -25,6 +34,6 @@
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.2/semantic.min.js"></script>
-    <script src="/static/js/main.js"></script>
+    <script src="../static/js/main.js"></script>
 </body>
 </html>

@@ -1,19 +1,27 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Sign In</h1>
-    <form action="" method="post" novalidate>
-        {{ form.hidden_tag() }}
-        <p>
-            {{ form.username.label }}<br>
-            {{ form.username(size=32) }}
-        </p>
-        <p>
-            {{ form.password.label }}<br>
-            {{ form.password(size=32) }}
-        </p>
-        <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
-        <p>{{ form.submit() }}</p>
-    </form>
-    <p>New User? <a href="/register">Click to Register!</a></p>
+<div class="ui container">
+    <div class="ui segment">
+        <h1 class="ui center aligned header">Sign In</h1>
+        <form class="ui form" action="" method="post" novalidate>
+            {{ form.hidden_tag() }}
+            <div class="ui field">
+                <label for="">{{ form.username.label }}</label>
+                {{ form.username(size=32) }}
+            </div>
+            <div class="ui field">
+                <label for="">{{ form.password.label }}</label>
+                {{ form.password(size=32) }}
+            </div>
+            <div class="ui field">
+                <div class="ui checkbox">{{ form.remember_me() }} {{ form.remember_me.label }}</div>
+            </div>
+            <div class="ui field">
+                <button class="ui basic green button" type="submit">Log In</button>
+            </div>
+        </form>
+        <div class="ui floating blue message">New User? <a href="/register">Click to Register!</a></div>
+    </div>
+</div>
 {% endblock %}

@@ -23,7 +23,6 @@ def register():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
-        print(current_user)
         return redirect("/")
     form = LoginForm()
     if form.validate_on_submit():
@@ -47,12 +46,13 @@ def index():
         u = User.query.get(current_user.id)
         record       = random.choice(u.posts.all())
         total_cards  = len(u.posts.all())
-        # all_topics   = len(db.session.query(u.posts.topic.distinct()).all())
+        all_topics   = len(set([t.topic for t in u.posts.all()]))
     except:
-        record = None
+        record       = None
         total_cards  = 0
+        all_topics   = 0
 
-    return render_template("index.html", card=record, total_cards=total_cards)
+    return render_template("index.html", card=record, total_cards=total_cards, all_topics=all_topics)
 
 @app.route("/cards/new", methods=["GET", "POST"])
 def new_card():
@@ -62,9 +62,7 @@ def new_card():
         u = User.query.get(current_user.id)
         question = request.form["question"]
         topic = request.form["topic"]
-        print("here")
         card = Card(question, topic, author=u)
-        print("here2")
         db.session.add(card)
         db.session.commit()
 
@@ -72,17 +70,18 @@ def new_card():
 
 @app.route("/cards")
 def show_cards():
-    cards = Card.query.all()
-    content = {"items":[]}
-    for c in cards:
-        content["items"].append({"topic": c.topic, "question":c.question})
-    print(content)
-    return jsonify(content)
+    u = User.query.get(current_user.id)
+    cards = u.posts.all()
+    # returns all cards in random order.
+    # Good UX or no?
+    random.shuffle(cards)
+    return render_template("cards.html", cards=cards)
 
 @app.route("/cards/<int:card_id>")
 def get_card(card_id):
-    card = Card.query.get(card_id)
-    return render_template("show.html", card=card)
+    u = User.query.get(current_user.id).posts.all()
+    card = [c for c in u if c.id == card_id]
+    return render_template("show.html", card=card[0])
 
 @app.route("/cards/<int:card_id>", methods=["POST"])
 def edit(card_id):

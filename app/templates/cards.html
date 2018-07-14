@@ -1,5 +1,40 @@
 {% extends "base.html" %}
-    {% block content %}
+{% block content %}
+    <div class="ui segment">
+        <div class="ui stackable grid">
+            {% for card in cards %}
+            <div class="four wide column">
+            <div class="ui fluid card">
+                    <div class="content">
+                        <!-- <img class="right floated mini ui image" src="/images/avatar/large/elliot.jpg"> -->
+                        <div class="header">
+                        {% if card.question|length > 25 %}
+                        {{card.question[0:25]}}...
+                        {% else %}
+                        {{card.question}}
+                        {% endif %}
+                        </div>
+                        <div class="meta">
+                        {% if card.topic|length > 25 %}
+                        {{card.topic}}
+                        {% else %}
+                        {{card.topic}}
+                        {% endif %}
+                        </div>
+                        <div class="description">
+                        Here will be the answer for the question answered by the user.
+                        </div>
+                    </div>
+                    <div class="extra content">
+                        <div class="ui two buttons">
+                        <div class="ui basic green button">Approve</div>
+                        <div class="ui basic red button">Decline</div>
+                        </div>
+                    </div>
+                </div>
 
-    <h1>Show all cards</h1>
-    {% endblock %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

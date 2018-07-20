@@ -2,6 +2,12 @@
 * This is a web application for storing a collection of
 online flash cards for studying.
 * Use as you wish! You're the hacker :thumbsup:
+* **The app is currently geared towards my pursuit for a fulfilling Software Engineer position, but can certainly be modified for other areas of study** 
+
+## Features
+* Python syntax highlighting using [Pygments](http://pygments.org/)
+* Random Card upon refreshing the app on index.html 
+* Querying based on pre defined category. (General vs Code)
 
 ## Usage
 * `git clone https://github.com/YOURUSERNAME/Flask-Cards.git`

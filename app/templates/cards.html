@@ -1,4 +1,8 @@
 {% extends "base.html" %}
+{% block head %}
+    {{super()}}
+    <link rel="stylesheet" href="../static/css/codestyles.css">
+{% endblock %}
 {% block content %}
     <div class="ui segment">
         <div class="ui stackable grid">
@@ -7,31 +11,49 @@
             <div class="ui fluid card">
                     <div class="content">
                         <!-- <img class="right floated mini ui image" src="/images/avatar/large/elliot.jpg"> -->
-                        <div class="header">
-                        {% if card.question|length > 25 %}
-                        {{card.question[0:25]}}...
+                        <div class="topic ellipsis header">
+                        {% if card.topic|length > 25 %}
+                        {{card.topic[0:25]}}...
                         {% else %}
-                        {{card.question}}
+                        {{card.topic}}
                         {% endif %}
                         </div>
-                        <div class="meta">
-                        {% if card.topic|length > 25 %}
-                        {{card.topic}}
-                        {% else %}
-                        {{card.topic}}
-                        {% endif %}
+                        <div class="question ellipsis meta">
+
+                        {{card.question}}
+
                         </div>
                         <div class="description">
                         Here will be the answer for the question answered by the user.
                         </div>
                     </div>
                     <div class="extra content">
-                        <div class="ui yellow fluid button">See Answer</div>
+                        <div class="ui yellow fluid button" onclick="showModal(this)">See Answer</div>
                     </div>
                 </div>
 
             </div>
             {% endfor %}
+        </div>
+    </div>
+    <div class="ui long modal">
+        <i class="close icon"></i>
+        <div class="modaltitle header">
+            Test
+        </div>
+        <div class="modalcontent content">
+            <!-- <div class="modalquestion description">
+                <div class="meta">Tester</p>
+            </div> -->
+        </div>
+        <div class="actions">
+            <div class="ui red deny button">
+            Hm, review!
+            </div>
+            <div class="ui positive right labeled icon button">
+            Yep, I know this one!
+            <i class="checkmark icon"></i>
+            </div>
         </div>
     </div>
 {% endblock %}

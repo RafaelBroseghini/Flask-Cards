@@ -2,22 +2,19 @@ $('.corner')
   .popup()
 ;
 
+function showModal(el) {
+  $('.ui.long.modal', function(){
+    let card = $(el).parent().parent(),
+    topic = card.find(".topic").text(),
+    question = card.find(".question").text(),
+    modaltitle = document.querySelector(".modaltitle")
 
-$(document).ready(function() {
-  $('pre code').each(function(i, block) {
-    hljs.highlightBlock(block);
-  });
-});
+    modaltitle.textContent = topic;
 
-// $('.ui.search')
-//   .search({
-//     apiSettings: {
-//       url: '/cards'
-//     },
-//     fields: {
-//       results: 'items',
-//       title: 'topic'
-//     }
-//   })
-// ;
+    $(".highlight").remove();
+    $(".modalcontent").append(question)
+  })
+  .modal('show');
+}
+
 

@@ -22,14 +22,16 @@ class User(UserMixin, db.Model):
 
 class Card(db.Model):
    id = db.Column(db.Integer, primary_key = True)
-   question = db.Column(db.String(100))
+   category = db.Column(db.String(100))
    topic = db.Column(db.String(100))
+   question = db.Column(db.String(100))
    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
    
-   def __init__(self, question, topic, author):
-       self.question = question
+   def __init__(self, category, topic, question, author):
+       self.category = category
        self.topic = topic
+       self.question = question
        self.author = author
 
 @login.user_loader

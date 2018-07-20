@@ -3,12 +3,28 @@
     <div class="ui main container">
         <form action="/cards/new" method="POST" class="ui form">
             <div class="field">
-                <label for="question">Question</label>
-                <input type="text" name="question">
-            </div>
-            <div class="field">
                 <label for="topic">Topic</label>
                 <input type="text" name="topic"> 
+            </div>
+            <div class="field">
+                <label for="question">Question/Code</label>
+                <!-- <input type="text" name="question">
+                 -->
+                <textarea name="question" id="" cols="30" rows="10"></textarea>
+            </div>
+            <div class="inline fields">
+                <div class="field">
+                    <div class="ui radio checkbox">
+                        <input type="radio" name="category" value="general" required>
+                        <label>General</label>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="ui radio checkbox">
+                        <input type="radio" name="category" value="code" required>
+                        <label>Code</label>
+                    </div>
+                </div>
             </div>
             <button type="submit" class="ui circular teal button">Submit!</button>
         </form>

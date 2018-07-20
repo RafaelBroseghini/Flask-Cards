@@ -1,3 +1,12 @@
 .main {
     margin-top: 20em;
 }
+
+.question, .topic {
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.ellipsis {
+    text-overflow: ellipsis;
+}

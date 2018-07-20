@@ -3,6 +3,9 @@ from app import app, db
 from app.models import Card, User
 from app.forms import LoginForm, RegistrationForm
 from flask_login import current_user, login_user, logout_user, login_required
+from pygments import highlight
+from pygments.lexers import PythonLexer
+from pygments.formatters import HtmlFormatter
 import random
 import json
 
@@ -60,9 +63,15 @@ def new_card():
         return render_template("new.html")
     else:
         u = User.query.get(current_user.id)
-        question = request.form["question"]
+        category = request.form["category"]      
         topic = request.form["topic"]
-        card = Card(question, topic, author=u)
+        question = request.form["question"]
+
+        if category == 'code':
+            #using pygments to store code as html elements for highlighting.
+            question = highlight(question, PythonLexer(), HtmlFormatter())
+
+        card = Card(category, topic, question, author=u)
         db.session.add(card)
         db.session.commit()
 

@@ -86,6 +86,12 @@ def show_cards():
     random.shuffle(cards)
     return render_template("cards.html", cards=cards)
 
+@app.route("/cards/<string:card_category>")
+def get_card_category(card_category):
+    u = User.query.get(current_user.id).posts.all()
+    cards = [c for c in u if c.category == card_category]
+    return render_template("cards.html", cards=cards)
+
 @app.route("/cards/<int:card_id>")
 def get_card(card_id):
     u = User.query.get(current_user.id).posts.all()

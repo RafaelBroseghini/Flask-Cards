@@ -10,7 +10,7 @@ online flash cards for studying.
 * Querying based on pre defined category. (General vs Code)
 
 ## Usage
-* `git clone https://github.com/YOURUSERNAME/Flask-Cards.git`
+* `git clone https://github.com/RafaelBroseghini/Flask-Cards.git`
 * `cd Flask-Cards`
 * `pip install -r requirements.txt`
 * `flask db init`

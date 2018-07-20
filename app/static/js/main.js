@@ -2,6 +2,10 @@ $('.corner')
   .popup()
 ;
 
+$('.ui.dropdown')
+  .dropdown()
+;
+
 function showModal(el) {
   $('.ui.long.modal', function(){
     let card = $(el).parent().parent(),

@@ -57,7 +57,18 @@
                     <a class="ui left floated massive green button" href="/cards/{{ card.id }}">Edit!</a>
                 </div>
                 <div class="eight wide column">
-                    <a class="ui right floated massive teal button" href="/cards">My cards!</a>
+                    <!-- <a class="ui right floated massive teal button" href="/cards">My cards!</a> -->
+                    <div class="ui right floated massive teal buttons">
+                        <div class="ui button">My cards!</div>
+                        <div class="ui floating dropdown icon button">
+                            <i class="dropdown icon"></i>
+                            <div class="ui huge menu">
+                            <a href="/cards/general" class="item"><i class="edit icon"></i> General</a>
+                            <a href="/cards/code" class="item"><i class="code icon"></i> Code</a>
+                            <a href="/cards" class="item"><i class="globe icon"></i> All</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 {% endif %}
             </div>

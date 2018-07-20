@@ -10,3 +10,7 @@
 .ellipsis {
     text-overflow: ellipsis;
 }
+
+.modalcontent {
+    word-wrap: break-word
+}

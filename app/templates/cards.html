@@ -10,18 +10,11 @@
             <div class="four wide column">
             <div class="ui fluid card">
                     <div class="content">
-                        <!-- <img class="right floated mini ui image" src="/images/avatar/large/elliot.jpg"> -->
                         <div class="topic ellipsis header">
-                        {% if card.topic|length > 25 %}
-                        {{card.topic[0:25]}}...
-                        {% else %}
-                        {{card.topic}}
-                        {% endif %}
+                            {{card.topic}}
                         </div>
                         <div class="question ellipsis meta">
-
-                        {{card.question}}
-
+                            {{card.question}}
                         </div>
                         <div class="description">
                         Here will be the answer for the question answered by the user.
@@ -41,10 +34,8 @@
         <div class="modaltitle header">
             Test
         </div>
-        <div class="modalcontent content">
-            <!-- <div class="modalquestion description">
-                <div class="meta">Tester</p>
-            </div> -->
+        <div class="modalcontent content"> 
+            Question/Code goes here!
         </div>
         <div class="actions">
             <div class="ui red deny button">

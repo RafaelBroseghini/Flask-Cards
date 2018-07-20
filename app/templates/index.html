@@ -29,9 +29,9 @@
                     <div class="ui tall stacked segment">
                         <a class="ui black ribbon label">Topic</a>
                         {% if card %}
-                        <h1 class="ui header">{{ card.topic }}</h1>
+                        <h1 class="ui header ellipsis topic">{{ card.topic }}</h1>
                         {% else %}
-                        <h1 class="ui header">Topic will go here:</h1>
+                        <h1 class="ui header ellipsis topic">Topic will go here:</h1>
                         {% endif %}
                     </div>
                 </div>
@@ -44,9 +44,9 @@
                             <a href="/cards/new"><i class="add icon" style="cursor: pointer;"></i></a> 
                         </div>
                         {% if card%}
-                        <h1 class="ui header">{{ card.question }}</h1>
+                        <h1 class="ui header ellipsis question">{{ card.question }}</h1>
                         {% else %}
-                        <h1 class="ui header">Question will go here:</h1>
+                        <h1 class="ui header ellipsis question">Question will go here:</h1>
                         {% endif %}
                     </div>
                 </div>

@@ -24,7 +24,7 @@ class Card(db.Model):
    id = db.Column(db.Integer, primary_key = True)
    category = db.Column(db.String(100))
    topic = db.Column(db.String(100))
-   question = db.Column(db.String(1000))
+   question = db.Column(db.String(100000))
    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
    

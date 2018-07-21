@@ -89,6 +89,15 @@ def show_cards():
     random.shuffle(cards)
     return render_template("cards.html", cards=cards)
 
+# ---------------------------------------------------------------
+'''
+Can refactor this.
+
+Make a form that given a certain request.form (e.g) it would handle the
+constraints.
+
+Like if checkbox == category or topic do first querying, else do second.
+'''
 # Cards by category: General vs Code
 @app.route("/cards/category/<string:card_category>")
 def get_card_category(card_category):
@@ -103,6 +112,8 @@ def get_card_topic(card_topic):
     cards = [c for c in u if c.topic == card_topic]
     print(cards)
     return render_template("cards.html", cards=cards)
+
+# ---------------------------------------------------------------
 
 # Show card's form with card info populated on form based on card id.
 @app.route("/cards/<int:card_id>")

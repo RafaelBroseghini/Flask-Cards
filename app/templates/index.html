@@ -15,7 +15,7 @@
                         </div>  
                         <div class="statistic animated zoomIn">
                             <div class="value">
-                                {{ all_topics }}
+                                {{ all_topics_len }}
                             </div>
                             <div class="label">
                             Different Topic(s)
@@ -55,7 +55,7 @@
                 {% if card%}
                 <div class="sixteen wide column">
                     <a class="ui left floated massive green button" href="/cards/{{ card.id }}">Edit!</a>
-                    <div class="ui right floated massive teal buttons">
+                    <!-- <div class="ui right floated massive teal buttons">
                         <div class="ui button">View!</div>
                         <div class="ui floating dropdown icon button">
                             <i class="dropdown icon"></i>
@@ -64,7 +64,37 @@
                             <a href="/cards/code" class="item"><i class="code icon"></i> Code</a>
                             <a href="/cards" class="item"><i class="globe icon"></i> All</a>
                             </div>
-                        </div>
+                        </div> -->
+                        <div class="ui labeled icon top right pointing dropdown right floated massive teal button">
+                            <i class="filter icon"></i>
+                            <span class="text">Filter Cards</span>
+                            <div class="menu">
+                              <div class="ui search icon input">
+                                <i class="search icon"></i>
+                                <input type="text" name="search" placeholder="Search cards...">
+                              </div>
+                              <div class="divider"></div>
+                              <div class="header">
+                                <i class="tags icon"></i>
+                                Filter by category
+                              </div>
+                              <a class="item">
+                                <div class="ui blue empty circular label"></div>
+                                Announcement
+                              </a>
+                              <div class="divider"></div>
+                              <div class="header">
+                                <i class="calendar icon"></i>
+                                Filter by topic
+                              </div>
+                              {% for card in all_topics%}
+                              <a class="item" href="/cards/topic/{{ card }}">
+                                <i class="orange circle icon"></i>
+                                {{ card }}
+                              </a>
+                              {% endfor %}
+                            </div>
+                          </div>
                     </div>
                 </div>
                 {% endif %}

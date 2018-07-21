@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block head %}
     {{super()}}
-    <link rel="stylesheet" href="../static/css/codestyles.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/codestyles.css') }}">
 {% endblock %}
 {% block content %}
     <div class="ui segment">
@@ -17,11 +17,11 @@
                             {{card.question}}
                         </div>
                         <div class="description">
-                        Here will be the answer for the question answered by the user.
+                        
                         </div>
                     </div>
                     <div class="extra content">
-                        <div class="ui yellow fluid button" onclick="showModal(this)">See Answer</div>
+                        <div class="ui yellow fluid button" onclick="showModal(this)">See Card</div>
                     </div>
                 </div>
 

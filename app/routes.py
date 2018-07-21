@@ -47,15 +47,17 @@ def logout():
 def index():
     try:
         u = User.query.get(current_user.id)
-        record       = random.choice(u.posts.all())
-        total_cards  = len(u.posts.all())
-        all_topics   = len(set([t.topic for t in u.posts.all()]))
+        record          = random.choice(u.posts.all())
+        total_cards     = len(u.posts.all())
+        all_topics_len  = len(set([t.topic for t in u.posts.all()]))
+        all_topics      = set([t.topic for t in u.posts.all()])
     except:
-        record       = None
-        total_cards  = 0
-        all_topics   = 0
+        record          = None
+        total_cards     = 0
+        all_topics_len  = 0
+        all_topics      = 0
 
-    return render_template("index.html", card=record, total_cards=total_cards, all_topics=all_topics)
+    return render_template("index.html", card=record, total_cards=total_cards, all_topics_len=all_topics_len, all_topics=all_topics)
 
 @app.route("/cards/new", methods=["GET", "POST"])
 def new_card():
@@ -77,6 +79,7 @@ def new_card():
 
         return redirect("/")
 
+# All cards
 @app.route("/cards")
 def show_cards():
     u = User.query.get(current_user.id)
@@ -86,18 +89,29 @@ def show_cards():
     random.shuffle(cards)
     return render_template("cards.html", cards=cards)
 
-@app.route("/cards/<string:card_category>")
+# Cards by category: General vs Code
+@app.route("/cards/category/<string:card_category>")
 def get_card_category(card_category):
     u = User.query.get(current_user.id).posts.all()
     cards = [c for c in u if c.category == card_category]
     return render_template("cards.html", cards=cards)
 
+# Cards by Topic.
+@app.route("/cards/topic/<string:card_topic>")
+def get_card_topic(card_topic):
+    u = User.query.get(current_user.id).posts.all()
+    cards = [c for c in u if c.topic == card_topic]
+    print(cards)
+    return render_template("cards.html", cards=cards)
+
+# Show card's form with card info populated on form based on card id.
 @app.route("/cards/<int:card_id>")
 def get_card(card_id):
     u = User.query.get(current_user.id).posts.all()
     card = [c for c in u if c.id == card_id]
     return render_template("show.html", card=card[0])
 
+# Update card.
 @app.route("/cards/<int:card_id>", methods=["POST"])
 def edit(card_id):
     card = Card.query.get(card_id)

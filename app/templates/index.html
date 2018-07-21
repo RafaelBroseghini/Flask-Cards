@@ -78,18 +78,27 @@
                                 <i class="tags icon"></i>
                                 Filter by category
                               </div>
-                              <a class="item">
+                              <a class="item" href="/cards/category/general">
                                 <div class="ui blue empty circular label"></div>
-                                Announcement
+                                General
+                              </a>
+                              <a class="item" href="/cards/category/code">
+                                <div class="ui yellow empty circular label"></div>
+                                Code
+                              </a>
+                              <a class="item" href="/cards">
+                                <div class="ui green empty circular label"></div>
+                                All
                               </a>
                               <div class="divider"></div>
                               <div class="header">
                                 <i class="calendar icon"></i>
                                 Filter by topic
                               </div>
+                              {% set seq = ['blue', 'red', 'green', 'yellow', 'black', 'olive', 'violet', 'orange', 'purple', 'pink', 'brown'] %} 
                               {% for card in all_topics%}
                               <a class="item" href="/cards/topic/{{ card }}">
-                                <i class="orange circle icon"></i>
+                                <i class="{{ seq | random }} circle icon"></i>
                                 {{ card }}
                               </a>
                               {% endfor %}

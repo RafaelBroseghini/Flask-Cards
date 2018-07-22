@@ -16,15 +16,13 @@ function showModal(el) {
     console.log(card);
     console.log(topic);
     console.log(question);
-    // console.log();
-    // console.log();
     
     
     modaltitle.textContent = topic;
     console.log(modaltitle.textContent);
 
     $(".highlight").remove();
-    $(".modalcontent").append(question)
+    $(".modalcontent").text("").append(question)
   })
   .modal('show');
 }

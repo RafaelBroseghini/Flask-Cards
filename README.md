@@ -4,12 +4,19 @@ online flash cards for studying.
 * Use as you wish! You're the hacker :thumbsup:
 * **The app is currently geared towards my pursuit for a fulfilling Software Engineer position, but can certainly be modified for other areas of study** 
 
-## Features
+## Demo:
+![How to Use](/FlaskCards.gif)
+
+## Live:
+* See live on -> [Heroku](https://flask-cards-soft-eng.herokuapp.com/)
+
+## Features:
 * Python syntax highlighting using [Pygments](http://pygments.org/)
 * Random Card upon refreshing the app on index.html 
 * Querying based on pre defined category. (General vs Code)
+* Querying based on topics.
 
-## Usage
+## Usage:
 * `git clone https://github.com/RafaelBroseghini/Flask-Cards.git`
 * `cd Flask-Cards`
 * `pip install -r requirements.txt`
@@ -19,7 +26,7 @@ online flash cards for studying.
 * `flask db upgrade`
 * `flask run`
 
-## Future Add-ons
+## Future Add-ons:
 * Ability to divide into multiple study sessions.
 * Ajax calls.
 * ~~AuthO~~ -> _Done!_

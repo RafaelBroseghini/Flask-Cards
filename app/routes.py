@@ -50,7 +50,7 @@ def index():
         record          = random.choice(u.posts.all())
         total_cards     = len(u.posts.all())
         all_topics_len  = len(set([t.topic for t in u.posts.all()]))
-        all_topics      = set([t.topic for t in u.posts.all()])
+        all_topics      = sorted(set([t.topic for t in u.posts.all()]))
     except:
         record          = None
         total_cards     = 0

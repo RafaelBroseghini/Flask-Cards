@@ -11,11 +11,15 @@
     text-overflow: ellipsis;
 }
 
-.modalcontent {
-    word-wrap: break-word;
-    height: 300px;
+.long.modal {
+    height: 500px;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
+}
+
+.modalcontent {
+    word-wrap: break-word;
+
 }
 
 .scrollable {

@@ -12,7 +12,10 @@
 }
 
 .modalcontent {
-    word-wrap: break-word
+    word-wrap: break-word;
+    height: 300px;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
 }
 
 .scrollable {

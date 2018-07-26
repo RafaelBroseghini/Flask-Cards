@@ -14,21 +14,20 @@ function showModal(el) {
     modaltitle = document.querySelector(".modaltitle")
 
     console.log(card);
-    console.log(topic);
-    console.log(question);
+    // console.log(topic);
+    // console.log(question);
 
-    modaltitle.textContent = topic;
-    console.log(modaltitle.textContent);
+    modaltitle.textContent = question;
+    // console.log(modaltitle.textContent);
 
     $(".highlight").remove();
-    $(".modalcontent").text("").append(question)
+    $(".modalcontent").text("").append(topic)
   })
   .modal('show');
 }
 
 function showDescription(element) {
   $(element).find(".floated").toggleClass("toggle");
-   
 }
 
 

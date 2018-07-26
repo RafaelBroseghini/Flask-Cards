@@ -19,7 +19,7 @@
 
 .modalcontent {
     word-wrap: break-word;
-
+    white-space: pre-line;
 }
 
 .scrollable {

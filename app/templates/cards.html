@@ -7,27 +7,25 @@
     <div class="ui segment">
         <div class="ui stackable grid">
             {% for card in cards %}
-            <div class="four wide column">
+            <div class="four wide column" >
             <div class="ui fluid card">
                     <div class="content">
                         <div class="topic ellipsis header">
-                            {{card.topic}}
-                        </div>
-                        <div class="question ellipsis meta">
                             {{card.question}}
                         </div>
+                        <div class="question ellipsis meta">
+                            {{card.topic}}
+                        </div>
                         <div class="description">
-                        
                         </div>
                     </div>
-                    <div class="extra content">
+                    <div class="extra content" onmouseover="showDescription(this)" onmouseout="showDescription(this)">
                         <div class="sixteen wide column">
-                            <div class="ui left floated yellow button" onclick="showModal(this)">See Card</div>
-                            <a class="ui right floated green button" href="/cards/{{ card.id }}">Edit!</a>
+                            <div class="ui left floated yellow button toggle" onclick="showModal(this)">See Card</div>
+                            <a class="ui right floated green button toggle" href="/cards/{{ card.id }}">Edit!</a>
                         </div>
                     </div>
                 </div>
-
             </div>
             {% endfor %}
         </div>

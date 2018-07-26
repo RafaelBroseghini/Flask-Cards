@@ -16,8 +16,7 @@ function showModal(el) {
     console.log(card);
     console.log(topic);
     console.log(question);
-    
-    
+
     modaltitle.textContent = topic;
     console.log(modaltitle.textContent);
 
@@ -25,6 +24,11 @@ function showModal(el) {
     $(".modalcontent").text("").append(question)
   })
   .modal('show');
+}
+
+function showDescription(element) {
+  $(element).find(".floated").toggleClass("toggle");
+   
 }
 
 

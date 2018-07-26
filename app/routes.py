@@ -85,8 +85,8 @@ def show_cards():
     u = User.query.get(current_user.id)
     cards = u.posts.all()
     # returns all cards in random order.
-    # Good UX or no?
-    random.shuffle(cards)
+    # Good UX or no? No!!
+    cards = sorted(cards, key=lambda card:card.topic)
     return render_template("cards.html", cards=cards)
 
 # ---------------------------------------------------------------

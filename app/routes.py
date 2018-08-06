@@ -61,10 +61,12 @@ def index():
 
 @app.route("/cards/new", methods=["GET", "POST"])
 def new_card():
+    u = User.query.get(current_user.id)
+
     if request.method == "GET":
-        return render_template("new.html")
+        all_topics = sorted(set([t.topic for t in u.posts.all()]))
+        return render_template("new.html", all_topics=all_topics)
     else:
-        u = User.query.get(current_user.id)
         category = request.form["category"]      
         topic = request.form["topic"]
         question = request.form["question"]

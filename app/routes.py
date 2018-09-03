@@ -8,7 +8,6 @@ from pygments.lexers import PythonLexer
 from pygments.formatters import HtmlFormatter
 import random
 import json
-
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if current_user.is_authenticated:

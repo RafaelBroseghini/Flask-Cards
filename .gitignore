@@ -1,5 +1,15 @@
+# Venv
+venv/
+
+# IDEs
+.vscode/
+.idea/
+
+# Cache
 *.py[co]
 *.DS_*
+__pycache__/
+
 # Packages
 *.egg
 *.egg-info

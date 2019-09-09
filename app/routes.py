@@ -1,3 +1,5 @@
+import json
+import random
 from flask import render_template, request, redirect, jsonify, flash
 from app import app, db
 from app.models import Card, User
@@ -6,8 +8,7 @@ from flask_login import current_user, login_user, logout_user, login_required
 from pygments import highlight
 from pygments.lexers import PythonLexer
 from pygments.formatters import HtmlFormatter
-import random
-import json
+
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if current_user.is_authenticated:

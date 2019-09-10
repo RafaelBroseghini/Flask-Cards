@@ -1,13 +1,13 @@
 import json
 import random
 from flask import render_template, request, redirect, jsonify, flash
-from app import app, db
-from app.models import Card, User
-from app.forms import LoginForm, RegistrationForm
 from flask_login import current_user, login_user, logout_user, login_required
 from pygments import highlight
 from pygments.lexers import PythonLexer
 from pygments.formatters import HtmlFormatter
+from app import app, db
+from app.models import Card, User
+from app.forms import LoginForm, RegistrationForm
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -47,17 +47,19 @@ def logout():
 def index():
     try:
         u = User.query.get(current_user.id)
-        record          = random.choice(u.posts.all())
-        total_cards     = len(u.posts.all())
-        all_topics_len  = len(set([t.topic for t in u.posts.all()]))
-        all_topics      = sorted(set([t.topic for t in u.posts.all()]))
+        cards = u.posts.all()
+        topics = set(list(t.topic for t in cards))
+        random_card = random.choice(cards)
+        total_cards = len(cards)
+        all_topics_len = len(topics)
+        all_topics = sorted(topics)
     except:
-        record          = None
-        total_cards     = 0
-        all_topics_len  = 0
-        all_topics      = 0
+        random_card = None
+        total_cards = 0
+        all_topics_len = 0
+        all_topics = 0
 
-    return render_template("index.html", card=record, total_cards=total_cards, all_topics_len=all_topics_len, all_topics=all_topics)
+    return render_template("index.html", card=random_card, total_cards=total_cards, all_topics_len=all_topics_len, all_topics=all_topics)
 
 @app.route("/cards/new", methods=["GET", "POST"])
 def new_card():
@@ -85,10 +87,7 @@ def new_card():
 @app.route("/cards")
 def show_cards():
     u = User.query.get(current_user.id)
-    cards = u.posts.all()
-    # returns all cards in random order.
-    # Good UX or no? No!!
-    cards = sorted(cards, key=lambda card:card.topic)
+    cards = sorted(u.posts.all(), key=lambda card:card.topic)
     return render_template("cards.html", cards=cards)
 
 # ---------------------------------------------------------------
@@ -103,15 +102,15 @@ Like if checkbox == category or topic do first querying, else do second.
 # Cards by category: General vs Code
 @app.route("/cards/category/<string:card_category>")
 def get_card_category(card_category):
-    u = User.query.get(current_user.id).posts.all()
-    cards = [c for c in u if c.category == card_category]
+    u = User.query.get(current_user.id)
+    cards = [c for c in u.posts.all() if c.category == card_category]
     return render_template("cards.html", cards=cards)
 
 # Cards by Topic.
 @app.route("/cards/topic/<string:card_topic>")
 def get_card_topic(card_topic):
-    u = User.query.get(current_user.id).posts.all()
-    cards = [c for c in u if c.topic == card_topic]
+    u = User.query.get(current_user.id)
+    cards = [c for c in u.posts.all() if c.topic == card_topic]
     print(cards)
     return render_template("cards.html", cards=cards)
 
@@ -120,13 +119,15 @@ def get_card_topic(card_topic):
 # Show card's form with card info populated on form based on card id.
 @app.route("/cards/<int:card_id>")
 def get_card(card_id):
-    u = User.query.get(current_user.id).posts.all()
-    card = [c for c in u if c.id == card_id]
+    u = User.query.get(current_user.id)
+    card = [c for c in u.posts.all() if c.id == card_id]
     return render_template("show.html", card=card[0])
 
 # Update card.
 @app.route("/cards/<int:card_id>", methods=["POST"])
 def edit(card_id):
+    # TODO
+        # Only show cards respective to user.
     card = Card.query.get(card_id)
     card.question = request.form["question"]
     card.topic = request.form["topic"]
@@ -136,6 +137,8 @@ def edit(card_id):
 
 @app.route("/cards/<int:card_id>/delete", methods=["POST"])
 def delete_card(card_id):
+    # TODO
+        # Only show cards respective to user.
     Card.query.filter_by(id=card_id).delete()
     db.session.commit()
     return redirect("/")
